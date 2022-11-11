@@ -2,6 +2,7 @@
 def toStr(n, base):
     # variável que armazena os caracteres hexadecimais
     convertStr = "0123456789ABCDEF"
+    # parte recursiva para converter o número
     if n < base:
         return convertStr[n]
     else:

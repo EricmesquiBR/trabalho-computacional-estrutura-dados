@@ -1,4 +1,4 @@
-# função que soma os números
+# função recursiva conforme o slide 10 da aula 7 que soma os números
 def soma_nums(numList):
     # variável que armazena a soma
     soma = 0

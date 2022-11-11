@@ -1,22 +1,24 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
+# Cria o grafo
 G = nx.Graph()
 
-G.add_node('v1')
-G.add_node('v2')
-G.add_node('v3')
-G.add_node('v4')
-G.add_node('v5')
+# Cria os vértices do grafo
+G.add_node('A')
+G.add_node('B')
+G.add_node('C')
+G.add_node('D')
+G.add_node('E')
 
-G.add_edge('v1', 'v2')
-G.add_edge('v1', 'v3')
-G.add_edge('v2', 'v4')
-G.add_edge('v3', 'v4')
-G.add_edge('v5', 'v1')
-G.add_edge('v4', 'v5')
-G.add_edge('v2', 'v4')
+# Cria as arestas do grafo
+G.add_edge('B', 'A')
+G.add_edge('B', 'D')
+G.add_edge('B', 'C')
+G.add_edge('D', 'C')
+G.add_edge('D', 'E')
 
+# Mostra os vértices do grafo
 print('Lista de vértices: ')
 print(G.nodes())
 
@@ -25,7 +27,7 @@ print('Preenchendo os vértices')
 for v in G.nodes():
     print(v)
 
-
+# Mostra as arestas do grafo
 print('Lista de arestas: ')
 print(G.edges())
 
@@ -39,35 +41,38 @@ print('Percorrendo de graus de G')
 print(G.degree())
 
 
-print('O grau de vértice v2 é %d' %G.degree()['v2'])
+print('O grau de vértice B é %d' %G.degree()['B'])
 print()
 
+# Mostra a lista de adjacência do grafo
 print('Grafo como lista de adjacências')
-print(G['v1'])
-print(G['v2'])
-print(G['v3'])
-print(G['v4'])
-print(G['v5'])
+print(G['A'])
+print(G['B'])
+print(G['C'])
+print(G['D'])
+print(G['E'])
 
-
+# Mosta a matriz binária de adjacência do grafo
 print('Matriz de adjacência de G')
 A = nx.adjacency_matrix(G)
 print(A.todense())
 
-G['v1']['v2']['peso'] = 5
-G['v2']['v3']['peso'] = 10
-G['v3']['v4']['peso'] = 2
-G['v4']['v5']['peso'] = 7
-G['v5']['v1']['peso'] = 4
-G['v2']['v4']['peso'] = 8
+# Define o peso de cada aresta do grafo
+G['B']['A']['peso'] = 1
+G['B']['D']['peso'] = 2
+G['B']['C']['peso'] = 2
+G['D']['C']['peso'] = 3
+G['D']['E']['peso'] = 1
 
+# Adiciona o peso de cada aresta no grafo
 print('Adicionando pesos às arestas')
 for edge in G.edges():
     u = edge[0]
 v = edge[1]
 print('O peso da aresta', edge, 'vale', G[u][v]['peso'])
+# Uso do método draw do networkx para desenhar o grafo e plota ele com o matplotlib
 print('Plotando o grafo como imagem...')
 plt.figure(1)
-nx.draw_network(G, pos=nx.spring_layout(G), with_labels=True)
+nx.draw_networkx(G, pos=nx.spring_layout(G), with_labels=True)
 plt.show()
 
