@@ -1,7 +1,7 @@
 import heapq as hq
 
 # é criada a lista de prioridade
-list_car = [(4, 'conforto'), (1, 'eletronica'), (3, 'transmisssao'), (2, 'frenagem'), (5, 'retrovisar')]
+list_car = [(4, 'F(N) = 2 ^ N'), (1, 'H(N) = Nlog(N)'), (3, 'S(N) = N ^ log(N)'), (2, 'G(N) = N ^ log(N)')]
 # heapify transforma a lista em uma lista de prioridade
 hq.heapify(list_car)
 
